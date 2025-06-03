@@ -1,4 +1,4 @@
-import { spawn } from 'child_process';
+import { spawn, execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import fs from 'fs';
@@ -38,11 +38,32 @@ if (fs.existsSync(packageJsonPath)) {
   console.log('Server dependencies:', Object.keys(packageJson.dependencies || {}));
 }
 
-console.log('🚀 Starting server from:', serverPath);
+// Install dependencies if they don't exist
+if (!fs.existsSync(nodeModulesPath)) {
+  console.log('🔧 Node modules not found, installing dependencies...');
+  try {
+    // Change to server directory and install
+    process.chdir(serverPath);
+    console.log('📁 Changed directory to:', process.cwd());
+    
+    console.log('📦 Running npm install...');
+    execSync('npm install', { 
+      stdio: 'inherit',
+      cwd: serverPath 
+    });
+    
+    console.log('✅ Dependencies installed successfully');
+  } catch (error) {
+    console.error('❌ Failed to install dependencies:', error.message);
+    process.exit(1);
+  }
+} else {
+  console.log('✅ Dependencies already installed');
+  process.chdir(serverPath);
+}
 
-// Change to server directory and start the application
-process.chdir(serverPath);
-console.log('📁 Changed working directory to:', process.cwd());
+console.log('🚀 Starting server from:', serverPath);
+console.log('📁 Final working directory:', process.cwd());
 
 const server = spawn('node', ['src/index.js'], {
   stdio: 'inherit',
