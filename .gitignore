@@ -48,5 +48,8 @@ Thumbs.db
 # Railway
 .railway/
 
+# Render
+.render/
+
 # But keep uploads directory structure
 !server/uploads/.gitkeep

@@ -89,6 +89,70 @@ Railway will automatically:
 4. Start the Express server
 5. Serve both frontend and API from the same domain
 
+## Deployment on Render
+
+### Prerequisites
+- Render account (sign up at render.com)
+- Git repository
+
+### Deploy Steps
+
+1. **Prepare for deployment**:
+   ```bash
+   git add .
+   git commit -m "Prepare for Render deployment"
+   git push origin main
+   ```
+
+2. **Deploy to Render**:
+   - Go to [render.com](https://render.com)
+   - Click "New +" → "Web Service"
+   - Connect your GitHub repository
+   - Select this repository
+   - Render will automatically detect the settings
+
+3. **Configuration** (Auto-detected from `render.yaml`):
+   - **Build Command**: `npm run build:all`
+   - **Start Command**: `npm start`
+   - **Environment**: Node.js
+   - **Region**: Frankfurt (or closest to you)
+
+4. **Environment Variables** (automatically set):
+   - `NODE_ENV=production`
+   - `PORT` - Set by Render
+
+5. **Custom Domain** (optional):
+   - Go to your Render dashboard
+   - Click "Settings" → "Custom Domains"
+   - Add your domain
+
+### Render Configuration
+
+The project includes:
+- `render.yaml` - Render service configuration
+- Production CORS settings
+- Security headers for production
+- Persistent disk for file uploads (1GB)
+- Health check endpoint at `/api/health`
+
+### Build Process
+
+Render will automatically:
+1. Install frontend dependencies
+2. Build the React app with optimizations
+3. Install backend dependencies
+4. Start the Express server
+5. Serve both frontend and API from the same domain
+
+### Advantages of Render
+
+- ✅ **Free tier** with 750 hours/month
+- ✅ **Persistent storage** for uploads
+- ✅ **Automatic SSL** certificates
+- ✅ **Custom domains** support
+- ✅ **Health checks** and monitoring
+- ✅ **Easy scaling** when needed
+
 ## Project Structure
 
 ```
