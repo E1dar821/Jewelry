@@ -4,8 +4,12 @@ services:
     env: node
     region: frankfurt
     plan: free
-    buildCommand: npm install && npm run build:frontend && cd server && npm install --production
-    startCommand: cd server && npm start
+    buildCommand: |
+      npm install
+      npm run build:frontend
+      cd server
+      npm install --production
+    startCommand: npm start
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
