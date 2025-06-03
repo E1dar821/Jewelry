@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+  
+  .text-shadow-luxury {
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  }
+  
+  .backdrop-blur-luxury {
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+  
+  .border-luxury {
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+  }
+  
+  .luxury-glow {
+    box-shadow: 
+      0 0 5px rgba(255, 215, 0, 0.2),
+      0 0 10px rgba(255, 215, 0, 0.1),
+      0 0 15px rgba(255, 215, 0, 0.05);
+  }
+}

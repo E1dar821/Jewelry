@@ -1,0 +1,55 @@
+{
+  "carousels": [
+    {
+      "id": "model",
+      "images": [
+        "/src/assets/images/model1.jpg",
+        "/uploads/1748952301335-model3.jpg"
+      ],
+      "title": "Model Showcase"
+    },
+    {
+      "id": "luxury",
+      "images": [
+        "/uploads/1748952055143-lux2.jpg",
+        "/uploads/1748952277049-dc14f969964495.5b93010b02ae7.jpg"
+      ],
+      "title": "Luxury Collection"
+    },
+    {
+      "id": "rings",
+      "images": [
+        "/src/assets/images/ring2.png"
+      ],
+      "title": "Ring Collection"
+    },
+    {
+      "id": "elegance",
+      "images": [
+        "/src/assets/images/ring3.png",
+        "/uploads/1748955056587-diamond-ring2.jpg"
+      ],
+      "title": "Eternal Elegance",
+      "description": "Where heritage meets modern craftsmanship"
+    }
+  ],
+  "textContent": {
+    "mainTitle": {
+      "text": "Make ETERNAL BEAUTY FOR US",
+      "description": "Main hero section title"
+    },
+    "quote": {
+      "text": "Defining Perfection, One Exquisite Stone at a Time",
+      "description": "Decorative quote"
+    },
+    "brandText": {
+      "text": "From us, for you",
+      "description": "Top brand text"
+    },
+    "luxuryBrand": {
+      "text": "W",
+      "subtext": "LUXURY JEWELRY",
+      "description": "Luxury branding text"
+    }
+  }
+}
