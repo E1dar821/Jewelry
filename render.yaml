@@ -5,11 +5,19 @@ services:
     region: frankfurt
     plan: free
     buildCommand: |
+      echo "Installing frontend dependencies..."
       npm install
+      echo "Building frontend..."
       npm run build:frontend
-      cd server
-      npm install --production
-    startCommand: npm start
+      echo "Installing server dependencies..."
+      cd server && pwd && npm install
+      echo "Listing server directory..."
+      ls -la
+      echo "Checking node_modules..."
+      ls -la node_modules | head -10
+      echo "Making start script executable..."
+      chmod +x ../start.sh
+    startCommand: bash start.sh
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
